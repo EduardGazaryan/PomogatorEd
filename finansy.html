@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+
+    <div class="container">
+        <form action="#" class="login-form" name="submit-to-google-sheet">
+
+            <input type="date" name="Date" id="Date" autocomplete="off" placeholder="Дата" required>
+            <input type="text" name="Name" id="Name" list="breeds" autocomplete="on" placeholder="Расходы или доходы" required>
+            <datalist id="breeds">
+                <option value="Расходы"></option>
+                <option value="Доходы"></option>
+                
+             
+              
+            </datalist>
+            
+            <input type="text" name="Work" id="Work" list="tasks" autocomplete="on" placeholder="Статья расх/дох" required>
+            <datalist id="tasks">
+                <option value="Продукты"></option>
+                <option value="Одежда"></option>
+                <option value="Стройматериалы"></option>
+                <option value="Подарки"></option>
+                <option value="Учеба Ар"></option>
+                <option value="Учеба Эд"></option>
+                <option value="Комуналка Гин"></option>
+                <option value="Комуналка Ор"></option>
+                <option value="1"></option>
+                <option value="2"></option>
+              
+            </datalist>
+            
+            <input type="number" step="any" name="Price" id="Price" autocomplete="off" placeholder="Сколько денег?" required>
+
+            
+            
+            <button type="submit">Записать</button>
+
+            <span id="sendText"></span>
+
+            
+        </form>
+        <div>
+            
+            <form action="./analitika.html" class="zarplata" target="_blank">
+                <button>Аналитика</button>                
+            </form>
+
+            <form action="./index.html" class="zarplata" target="_blank">
+                <button>Главная</button>                
+            </form>
+
+        </div>
+
+
+    </div>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwXMHNcXtPqoG4v4V-SnsJ-WG5hhTgLmxtCG-YXrDH9VmGXvT75cOa4N30Ffob2AaY3iA/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const sendText = document.getElementById('sendText')
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    sendText.innerHTML = "Спасибо, твои данные отправлены успешно!"
+                    setTimeout(function () {
+                        sendText.innerHTML = ''
+                    }, 3000)
+                    form.reset()
+                })
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+
+
+
+
+</body>
+
+</html>

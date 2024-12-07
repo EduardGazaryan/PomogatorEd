@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+
+    <div class="container">
+        <form action="#" class="login-form" name="submit-to-google-sheet">
+
+            <input type="date" name="Date" id="Date" autocomplete="off" placeholder="Дата" required>
+            <input type="text" name="Name" id="Name" list="breeds" autocomplete="on" placeholder="Кредитор/дебитор" required>
+            <datalist id="breeds">
+                <option value="Я-кредитор"></option>
+                <option value="Я-дебитор"></option>              
+            </datalist>
+
+            <input type="text" name="Name1" id="Name1" list="breeds1" autocomplete="on" placeholder="Операция" required>
+            <datalist id="breeds1">
+                <option value="Возврат долга"></option>
+                <option value="Получение займа"></option>              
+            </datalist>
+            
+            <input type="text" name="Work" id="Work" list="tasks" autocomplete="on" placeholder="Контрагенты" required>
+            <datalist id="tasks">
+                <option value="Александр Усилов"></option>
+                <option value="Карина Газарян"></option>
+                <option value="Алексей Белметиз"></option>
+                <option value="Сергей Довнер"></option>
+                <option value="Игорь Усилов"></option>
+                <option value="Александр Труханович"></option>
+                <option value="Александр Грицук"></option>
+                <option value="Виктор Горнаков"></option>
+                <option value="Ефимов Толик"></option>
+                <option value="Ашот Оганесян"></option>
+                <option value="Дима Моссэ"></option>
+                <option value="Артур Газарян"></option>
+                <option value="Константин Саркисян"></option>
+                <option value="Араик Саркисян"></option>
+                <option value="Вадим Мовсесян"></option>
+                <option value="Татьяна Воропаева"></option>
+                <option value="Татьяна Погосян"></option>
+                <option value="Света Заславль"></option>
+                <option value="1"></option>
+                <option value="2"></option>
+               
+              
+            </datalist>
+            
+            <input type="number" step="any" name="Price" id="Price" autocomplete="off" placeholder="Сумма" required>
+
+            
+            
+            <button type="submit">Записать</button>
+
+            <span id="sendText"></span>
+
+            
+        </form>
+        <div>
+            <form action="./analitika.html" class="zarplata" target="_blank">
+                <button>Аналитика</button>                
+            </form> 
+
+            <form action="./index.html" class="zarplata" target="_blank">
+                <button>Главная</button>                
+            </form>
+
+        </div>
+
+
+    </div>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzEIB28KUgxAvAer8j-VTLx8e8L25GJZk13GWdfiW8cMi-Uz_gmqEj23r0XUn8U3X6KoA/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const sendText = document.getElementById('sendText')
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    sendText.innerHTML = "Спасибо, твои данные отправлены успешно!"
+                    setTimeout(function () {
+                        sendText.innerHTML = ''
+                    }, 3000)
+                    form.reset()
+                })
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>МОЯ РАБОТА</h1>
+        <!-- Добавляем id для iframe -->
+        <iframe id="myIframe" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTM5OBh0lhcme26t0sme7_bKfbUCgUFdb5CkL7mAcZ4iMWsbM9mMkd2WVFJ5_HwjtKoo_cS5gHPaMpR/pubhtml?gid=48586241&single=true"></iframe>
+        <div>
+            
+            <!-- Добавляем id для select -->
+            <select id="monthSelect">
+                <option value="september">сентябрь</option>
+                <option value="october">октябрь</option>
+                <option value="november">ноябрь</option>
+                <option value="december">декабрь</option>
+                <option value="january">январь</option>
+            </select>
+
+            <form action="https://docs.google.com/spreadsheets/d/1pmIX4-9L_a2g9_aX_-olhqctaeOwt-PqpPfa87kX4es/edit?gid=0#gid=0" class="rabota" target="_blank">
+                <button>Редактировать</button>
+            </form>
+
+            <form action="./index.html" class="rabota" target="_blank">
+                <button>Главная</button>
+            </form>
+            
+        </div>
+    </div>
+
+    <!-- Добавляем скрипт -->
+    <script>
+        // Получаем элементы
+        const monthSelect = document.getElementById('monthSelect');
+        const myIframe = document.getElementById('myIframe');
+
+        // Функция для обновления ссылки в iframe
+        function updateIframeLink(month) {
+            let baseUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTM5OBh0lhcme26t0sme7_bKfbUCgUFdb5CkL7mAcZ4iMWsbM9mMkd2WVFJ5_HwjtKoo_cS5gHPaMpR/pubhtml';
+            switch (month) {
+                case 'september':
+                    myIframe.src = `https://docs.google.com/spreadsheets/d/e/2PACX-1vTM5OBh0lhcme26t0sme7_bKfbUCgUFdb5CkL7mAcZ4iMWsbM9mMkd2WVFJ5_HwjtKoo_cS5gHPaMpR/pubhtml?gid=479160384&single=true`;
+                    break;
+                case 'october':
+                    myIframe.src = `https://docs.google.com/spreadsheets/d/e/2PACX-1vTM5OBh0lhcme26t0sme7_bKfbUCgUFdb5CkL7mAcZ4iMWsbM9mMkd2WVFJ5_HwjtKoo_cS5gHPaMpR/pubhtml?gid=1698323313&single=true`;
+                    break;
+                case 'november':
+                    myIframe.src = `https://docs.google.com/spreadsheets/d/e/2PACX-1vTM5OBh0lhcme26t0sme7_bKfbUCgUFdb5CkL7mAcZ4iMWsbM9mMkd2WVFJ5_HwjtKoo_cS5gHPaMpR/pubhtml?gid=1305926385&single=true`;
+                    break;
+                case 'december':
+                    myIframe.src = `https://docs.google.com/spreadsheets/d/e/2PACX-1vTM5OBh0lhcme26t0sme7_bKfbUCgUFdb5CkL7mAcZ4iMWsbM9mMkd2WVFJ5_HwjtKoo_cS5gHPaMpR/pubhtml?gid=944219590&single=true`;
+                    break;
+                case 'january':
+                    myIframe.src = `${baseUrl}?gid=JANUARY_GID`;
+                    break;
+                default:
+                    console.error('Неизвестный месяц.');
+            }
+        }
+
+        // Обработчик события change для select
+        monthSelect.addEventListener('change', function () {
+            const selectedMonth = this.value;
+            updateIframeLink(selectedMonth);
+        });
+    </script>
+</body>
+
+</html>

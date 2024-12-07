@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Кнопки мессенджеров</title>
+    <style>
+        .messenger-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-right: 10px;
+            border-radius: 4px;
+            font-size: 16px;
+            text-decoration: none;
+            color: white;
+            background-color: #25D366; /* Цвет кнопки WhatsApp */
+        }
+        
+        .viber-button {
+            background-color: #59267C; /* Цвет кнопки Viber */
+        }
+        
+        .telegram-button {
+            background-color: #0088CC; /* Цвет кнопки Telegram */
+        }
+    </style>
+</head>
+<body>
+    <!-- Кнопка WhatsApp -->
+    <a href="https://wa.me/+375447788888?text=Привет!%20Я%20хочу%20получить%20информацию." class="messenger-button">WhatsApp</a>
+    
+    <!-- Кнопка Viber -->
+    <a href="viber://chat?number=%2B+375447788888&text=Привет!%20Я%20хочу%20получить%20информацию." class="messenger-button viber-button">Viber</a>
+    
+    <!-- Кнопка Telegram -->
+    <a href="tg://resolve?domain=ВашTelegramДомен&text=Привет!%20Я%20хочу%20получить%20информацию." class="messenger-button telegram-button">Telegram</a>
+</body>
+</html>

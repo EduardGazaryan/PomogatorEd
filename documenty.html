@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+       
+        <!-- Добавляем id для iframe -->
+        <iframe id="myIframe" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7_rPWHs-FvDvgKF5PmoEfa2AF26D21fm-MMyf7J4M8VLXsEIapasL2i88SDMzg3MdoluWkzqCo7TB/pubhtml?gid=1097566178&single=true"></iframe>
+        <div>
+            
+            <!-- Добавляем id для select -->
+            <select id="monthSelect">
+                <option value="1">Паспорт РБ Эдуарда</option>
+                <option value="2">Паспорт РФ Эдуарда</option>
+                <option value="3">Паспорт АР Эдуарда</option>
+                <option value="4">Паспорт РБ Юлии</option>
+                <option value="5">Паспорт АР Юлии</option>
+                <option value="6">Паспорт РБ Арины</option>
+                <option value="7">Паспорт АР Арины</option>
+                <option value="8">Паспорт РБ Эдварда</option>
+                <option value="9">Паспорт АР Эдварда</option>
+                <option value="10">Вод. уд. Эдуарда</option>
+                <option value="11">Вод. уд. Юлии</option>
+                <option value="12">Свидетельство о браке</option>
+                <option value="13">Св. о рождении Эдуарда</option>
+                <option value="14">Св. о рождении Юлии</option>
+                <option value="15">Св. о рождении Арины</option>
+                <option value="16">Св. о рождении Эдварда</option>           
+            </select>
+
+            
+
+            <form action="./index.html" class="rabota" target="_blank">
+                <button>Главная</button>
+            </form>
+            
+        </div>
+    </div>
+
+    <!-- Добавляем скрипт -->
+    <script>
+        // Получаем элементы
+        const monthSelect = document.getElementById('monthSelect');
+        const myIframe = document.getElementById('myIframe');
+
+        // Функция для обновления ссылки в iframe
+        function updateIframeLink(month) {
+            let baseUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7_rPWHs-FvDvgKF5PmoEfa2AF26D21fm-MMyf7J4M8VLXsEIapasL2i88SDMzg3MdoluWkzqCo7TB/pubhtml?gid=1097566178&single=true';
+            switch (month) {
+                case '1':
+                    myIframe.src = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7_rPWHs-FvDvgKF5PmoEfa2AF26D21fm-MMyf7J4M8VLXsEIapasL2i88SDMzg3MdoluWkzqCo7TB/pubhtml?gid=1097566178&single=true';
+                    break;
+                case '2':
+                    myIframe.src = `https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7_rPWHs-FvDvgKF5PmoEfa2AF26D21fm-MMyf7J4M8VLXsEIapasL2i88SDMzg3MdoluWkzqCo7TB/pubhtml?gid=1097566178&single=true`;
+                    break;
+                case '3':
+                    myIframe.src = `https://docs.google.com/spreadsheets/d/e/2PACX-1vTM5OBh0lhcme26t0sme7_bKfbUCgUFdb5CkL7mAcZ4iMWsbM9mMkd2WVFJ5_HwjtKoo_cS5gHPaMpR/pubhtml?gid=1305926385&single=true`;
+                    break;
+                    case '4':
+                    myIframe.src = `https://docs.google.com/spreadsheets/d/e/2PACX-1vTM5OBh0lhcme26t0sme7_bKfbUCgUFdb5CkL7mAcZ4iMWsbM9mMkd2WVFJ5_HwjtKoo_cS5gHPaMpR/pubhtml?gid=479160384&single=true`;
+                    break;
+                case '5':
+                    myIframe.src = `https://docs.google.com/spreadsheets/d/e/2PACX-1vTM5OBh0lhcme26t0sme7_bKfbUCgUFdb5CkL7mAcZ4iMWsbM9mMkd2WVFJ5_HwjtKoo_cS5gHPaMpR/pubhtml?gid=1698323313&single=true`;
+                    break;
+                case '6':
+                    myIframe.src = `https://docs.google.com/spreadsheets/d/e/2PACX-1vTM5OBh0lhcme26t0sme7_bKfbUCgUFdb5CkL7mAcZ4iMWsbM9mMkd2WVFJ5_HwjtKoo_cS5gHPaMpR/pubhtml?gid=1305926385&single=true`;
+                    break;
+                    case '7':
+                    myIframe.src = `https://docs.google.com/spreadsheets/d/e/2PACX-1vTM5OBh0lhcme26t0sme7_bKfbUCgUFdb5CkL7mAcZ4iMWsbM9mMkd2WVFJ5_HwjtKoo_cS5gHPaMpR/pubhtml?gid=479160384&single=true`;
+                    break;
+                case '8':
+                    myIframe.src = `https://docs.google.com/spreadsheets/d/e/2PACX-1vTM5OBh0lhcme26t0sme7_bKfbUCgUFdb5CkL7mAcZ4iMWsbM9mMkd2WVFJ5_HwjtKoo_cS5gHPaMpR/pubhtml?gid=1698323313&single=true`;
+                    break;
+                case '9':
+                    myIframe.src = `https://docs.google.com/spreadsheets/d/e/2PACX-1vTM5OBh0lhcme26t0sme7_bKfbUCgUFdb5CkL7mAcZ4iMWsbM9mMkd2WVFJ5_HwjtKoo_cS5gHPaMpR/pubhtml?gid=1305926385&single=true`;
+                    break;
+                    case '10':
+                    myIframe.src = `https://docs.google.com/spreadsheets/d/e/2PACX-1vTM5OBh0lhcme26t0sme7_bKfbUCgUFdb5CkL7mAcZ4iMWsbM9mMkd2WVFJ5_HwjtKoo_cS5gHPaMpR/pubhtml?gid=479160384&single=true`;
+                    break;
+                case '11':
+                    myIframe.src = `https://docs.google.com/spreadsheets/d/e/2PACX-1vTM5OBh0lhcme26t0sme7_bKfbUCgUFdb5CkL7mAcZ4iMWsbM9mMkd2WVFJ5_HwjtKoo_cS5gHPaMpR/pubhtml?gid=1698323313&single=true`;
+                    break;
+                case '12':
+                    myIframe.src = `https://docs.google.com/spreadsheets/d/e/2PACX-1vTM5OBh0lhcme26t0sme7_bKfbUCgUFdb5CkL7mAcZ4iMWsbM9mMkd2WVFJ5_HwjtKoo_cS5gHPaMpR/pubhtml?gid=1305926385&single=true`;
+                    break;
+                    console.error('Неизвестный месяц.');
+            }
+        }
+
+        // Обработчик события change для select
+        monthSelect.addEventListener('change', function () {
+            const selectedMonth = this.value;
+            updateIframeLink(selectedMonth);
+        });
+    </script>
+</body>
+
+</html>
